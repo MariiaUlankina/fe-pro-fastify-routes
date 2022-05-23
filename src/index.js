@@ -54,7 +54,7 @@ fastify.get('/user', (request,reply) => {
   const filterArray = array.filter((item) => String(item[filter]) === value);
   if (filter && value){
     result = filterArray;
-  } else if (!filter || !value){
+  } else if (!filter && !value){
     result = array;
   }
   return reply.send(result);
