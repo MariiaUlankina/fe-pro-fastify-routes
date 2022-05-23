@@ -48,7 +48,16 @@ fastify.get('/user/:id', (request,reply) => {
 
 
 fastify.get('/user', (request,reply) => {
-  
+  const {filter, value} = request.query;
+  let result = '';
+  const array = Object.values(users);
+  const filterArray = array.filter((item) => String(item[filter]) === value);
+  if (filter && value){
+    result = filterArray;
+  } else if (!filter || !value){
+    result = array;
+  }
+  return reply.send(result);
 } );
 
 export default fastify;
