@@ -47,7 +47,7 @@ fastify.get('/user/:id', (request,reply) => {
 } );
 
 
-fastify.get('/user', (request,reply) => {
+fastify.get('/users', (request,reply) => {
   const {filter, value} = request.query;
   let result = '';
   const array = Object.values(users);
